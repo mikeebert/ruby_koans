@@ -69,7 +69,7 @@ class AboutControlStatements < EdgeCase::Koan
     result = :default_value
     result = :false_value unless false
 
-    assert_equal __, result
+    assert_equal :false_value, result
   end
 
   def test_while_statement
@@ -79,7 +79,7 @@ class AboutControlStatements < EdgeCase::Koan
       result = result * i
       i += 1
     end
-    assert_equal __, result
+    assert_equal 3628800, result
   end
 
   def test_break_statement
@@ -90,7 +90,7 @@ class AboutControlStatements < EdgeCase::Koan
       result = result * i
       i += 1
     end
-    assert_equal __, result
+    assert_equal 3628800, result
   end
 
   def test_break_statement_returns_values
@@ -100,7 +100,7 @@ class AboutControlStatements < EdgeCase::Koan
       i += 1
     end
 
-    assert_equal __, result
+    assert_equal 2, result
   end
 
   def test_next_statement
@@ -108,10 +108,10 @@ class AboutControlStatements < EdgeCase::Koan
     result = []
     while i < 10
       i += 1
-      next if (i % 2) == 0
+      next if (i % 2) == 0 #todo study this syntax
       result << i 
     end
-    assert_equal __, result
+    assert_equal [1,3,5,7,9], result
   end
 
   def test_for_statement
@@ -120,7 +120,7 @@ class AboutControlStatements < EdgeCase::Koan
     for item in array
       result << item.upcase
     end
-    assert_equal [__, __, __], result
+    assert_equal ["FISH", "AND", "CHIPS"], result
   end
 
 end
